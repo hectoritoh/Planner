@@ -1,0 +1,4 @@
+hectoritoh_apps_planner:
+    resource: "@HectoritohAppsPlannerBundle/Resources/config/routing.yml"
+    prefix:   /
+
