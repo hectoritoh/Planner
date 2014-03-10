@@ -1,0 +1,7 @@
+parameters:
+#    hectoritoh_apps_core.example.class: Hectoritoh\Apps\CoreBundle\Example
+
+services:
+#    hectoritoh_apps_core.example:
+#        class: %hectoritoh_apps_core.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

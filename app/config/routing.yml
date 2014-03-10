@@ -1,3 +1,15 @@
+hectoritoh_apps_core:
+    resource: "@HectoritohAppsCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+hectoritoh_app_core:
+    resource: "@HectoritohAppCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+hectoritoh_template_sb_admin:
+    resource: "@HectoritohTemplateSbAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 hectoritoh_apps_planner:
     resource: "@HectoritohAppsPlannerBundle/Resources/config/routing.yml"
     prefix:   /
