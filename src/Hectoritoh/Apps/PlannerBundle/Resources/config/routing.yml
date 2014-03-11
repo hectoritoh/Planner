@@ -1,3 +1,17 @@
-hectoritoh_apps_planner_homepage:
-    pattern:  /hello/{name}
+
+planner_index:
+    pattern:  /admin/dashboard
     defaults: { _controller: HectoritohAppsPlannerBundle:Default:index }
+
+planner_login:
+    path:   /ingresar
+    defaults: { _controller: HectoritohAppsPlannerBundle:Secured:login }
+
+
+planner_login_check:
+    path:   /planner_login_check
+
+
+planner_logout:
+    path:   /planner_logout_check
+

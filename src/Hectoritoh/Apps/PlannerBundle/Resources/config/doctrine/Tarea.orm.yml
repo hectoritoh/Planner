@@ -1,0 +1,85 @@
+Hectoritoh\Apps\PlannerBundle\Entity\Tarea:
+    type: entity
+    table: tarea
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 250
+            fixed: false
+            nullable: false
+        fecha_asignacion:
+            type: datetime
+            nullable: false
+        detalle:
+            type: text
+            nullable: false
+        entrega:
+            type: datetime
+            nullable: true
+        estado:
+            type: integer
+            nullable: false
+           
+            
+    manyToOne:
+      cliente:
+        targetEntity: Cliente
+        joinColumn:
+          name: cliente_id
+          referencedColumnName: id
+    oneToMany:
+      subtareas:
+        targetEntity: Subtarea
+        mappedBy: tarea      
+      revisiones:
+        targetEntity: Revision
+        mappedBy: tarea      
+
+    manyToMany:
+      adjuntos:
+        targetEntity: Documento
+        joinTable:
+          name: tarea_documentos
+          joinColumns:
+            tarea_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            documento_id:
+              referencedColumnName: id
+              unique: true
+      verificadores:
+        targetEntity: Usuario
+        joinTable:
+          name: tarea_revisadores
+          joinColumns:
+            tarea_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            revisador_id:
+              referencedColumnName: id
+              unique: true
+      responsables:
+        targetEntity: Usuario
+        joinTable:
+          name: tarea_responsables
+          joinColumns:
+            tarea_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            responsable_id:
+              referencedColumnName: id
+              unique: true
+
+
+
+
+    lifecycleCallbacks:
+        prePersist: [preInsert]
+        preUpdate: [preUpdate]

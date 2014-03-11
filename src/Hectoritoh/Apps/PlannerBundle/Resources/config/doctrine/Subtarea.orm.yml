@@ -1,0 +1,44 @@
+Hectoritoh\Apps\PlannerBundle\Entity\Subtarea:
+    type: entity
+    table: subtarea
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 45
+            fixed: false
+            nullable: true
+        descripcion:
+            type: text
+            nullable: true
+        orden:
+            type: integer
+            nullable: true 
+        borrado:
+            type: integer
+            length: 1
+            fixed: true
+            nullable: true
+        created_at:
+            type: datetime
+            nullable: false
+        updated_at:
+            type: datetime
+            nullable: false
+
+    manyToOne:
+      tarea:
+        targetEntity: Tarea
+        inversedBy: subtareas
+        joinColumn:
+          name: tarea_id
+          referencedColumnName: id
+    lifecycleCallbacks:
+        prePersist: [preInsert]
+        preUpdate: [preUpdate]

@@ -1,0 +1,44 @@
+Hectoritoh\Apps\PlannerBundle\Entity\Revision:
+    type: entity
+    table: revision
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        descripcion:
+            type: text
+            nullable: true
+        accion:
+            type: string
+            nullable: true 
+        created_at:
+            type: datetime
+            nullable: false
+        updated_at:
+            type: datetime
+            nullable: false
+
+    manyToOne:
+      tarea:
+        targetEntity: Tarea
+        inversedBy: revision
+        joinColumn:
+          name: tarea_id
+          referencedColumnName: id
+      subtarea:
+        targetEntity: Subtarea
+        joinColumn:
+          name: subtarea_id
+          referencedColumnName: id
+ 
+   
+
+ 
+          
+    lifecycleCallbacks:
+        prePersist: [preInsert]
+        preUpdate: [preUpdate]
